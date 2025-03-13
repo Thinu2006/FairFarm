@@ -1,4 +1,13 @@
 <?php
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if (!isset($_SESSION['Admin_ID'])) {
+    header("Location: AdminLogin.php");
+    exit;
+}
+
 // Include and initialize controllers
 require_once '../../controllers/FarmerController.php';
 require_once '../../controllers/BuyerController.php';

@@ -1,3 +1,11 @@
+<?php
+require_once '../../../app/controllers/AdminController.php';
+
+$controller = new AdminController();
+
+$controller->authenticateAdmin();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,9 +38,17 @@
         <!-- Right Section - Login Form -->
         <div class="w-1/2 p-10">
             <h2 class="text-3xl font-bold mb-6 text-gray-700 text-center">Login</h2>
-            <input type="text" placeholder="Admin Username" class="block w-full p-3 border rounded-lg mb-4 focus:outline-gray-600">
-            <input type="password" placeholder="Password" class="block w-full p-3 border rounded-lg mb-4 focus:outline-gray-600">
-            <button class="w-full bg-gray-700 text-white py-3 rounded-lg hover:bg-gray-800 transition">Login</button>
+            <form action="AdminLogin.php" method="POST" class="form-container mt-8">
+                <div class="mb-">
+                    <input type="text" id="username" name="username" placeholder="Username" class="block w-full p-3 border rounded-lg mb-4 focus:outline-gray-600" required>
+                </div>
+                <div class="mb-">
+                    <input type="password" id="password" name="password" placeholder="Password" class="block w-full p-3 border rounded-lg mb-4 focus:outline-gray-600" required>
+                </div>
+               <div class="text-center pt-6 px-10">
+                    <button type="submit" class="w-full bg-gray-700 text-white py-3 rounded-lg hover:bg-gray-800 transition">Sign In</button>
+                </div>
+            </form>
         </div>
     </div>
 
