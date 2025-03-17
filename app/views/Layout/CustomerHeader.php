@@ -7,7 +7,7 @@
 </head>
 <body>
 <nav class="bg-white shadow-md py-4 px-6 flex justify-between items-center">
-     <img src="./../../Images/logo.png" alt="FarmLanka Logo" class="h-12">
+     <img src="./../../Images/lg2.png" alt="FarmLanka Logo" class="h-12">
         <ul class="flex space-x-6 text-gray-700">
             <li><a href="../Customer/CustomerDashboard.php" class="hover:text-green-600">Home</a></li>
             <li><a href="../Customer/CustomerProduct.php" class="hover:text-green-600">Our Product</a></li>

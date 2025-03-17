@@ -16,45 +16,45 @@ $farmers = $controller->index();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmers</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+    body {
+        font-family: "Roboto Slab", serif !important;
+        font-weight: 350;
+    }
+    </style>
 </head>
-<body class="bg-gray-100">
-    <!-- Main Container -->
-    <div class="flex">
-       <!-- Sidebar -->
-       <?php include '../Layout/AdminNav.php'; ?>
+<body class="bg-gray-100 flex">
+    <!-- Sidebar -->
+    <?php include '../Layout/AdminNav.php'; ?>
 
-        <!-- Main Content -->
-        <div class="flex-1 ml-64 p-10">
+    <!-- Main Content -->
+    <main class="flex-1 ml-64 p-10">
+        <div class="max-w-6xl mx-auto p-6 bg-white shadow-lg rounded-xl">
             <header class="text-center mb-6">
-                <h1 class="text-5xl font-rowdies font-bold text-gray-800 mb-4">Farmer Lsit</h1>
+                <h1 class="text-3xl font-bold text-green-800">Farmer List</h1>
             </header>
 
             <!-- Table to Display Farmers -->
             <div class="overflow-x-auto">
-                <table class="table-auto w-full border-collapse border border-gray-300 text-center bg-white shadow-md rounded-lg">
+                <table class="table-auto w-full border-collapse border border-gray-300 text-center">
                     <thead>
-                            <tr class="bg-gray-200">
-                                <th class="border border-gray-400 px-4 py-4">ID</th>
-                                <th class="border border-gray-400 px-4 py-4">Full Name</th>
-                                <th class="border border-gray-400 px-4 py-4">NIC</th>
-                                <th class="border border-gray-400 px-4 py-4">Contact No</th>
-                                <th class="border border-gray-400 px-4 py-4">Address</th>
-                                <th class="border border-gray-400 px-4 py-4">Email</th>
-                                <th class="border border-gray-400 px-4 py-4">Actions</th>
-                            </tr>
+                        <tr class="bg-gray-200">
+                            <th class="border border-gray-400 px-6 py-4">ID</th>
+                            <th class="border border-gray-400 px-6 py-4">Full Name</th>
+                            <th class="border border-gray-400 px-6 py-4">NIC</th>
+                            <th class="border border-gray-400 px-6 py-4">Contact No</th>
+                            <th class="border border-gray-400 px-6 py-4">Address</th>
+                            <th class="border border-gray-400 px-6 py-4">Email</th>
+                            <th class="border border-gray-400 px-6 py-4">Actions</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <?php if (!empty($farmers)): ?>
                             <?php foreach ($farmers as $farmer): ?>
-                                <tr>
+                                <tr class="bg-white">
                                     <td class="border border-gray-400 px-4 py-2"><?php echo $farmer['FarmerID']; ?></td>
                                     <td class="border border-gray-400 px-4 py-2"><?php echo $farmer['FullName']; ?></td>
                                     <td class="border border-gray-400 px-4 py-2"><?php echo $farmer['NIC']; ?></td>
@@ -64,9 +64,9 @@ $farmers = $controller->index();
                                     <td class="border border-gray-400 px-4 py-2 text-center">
                                         <div class="flex justify-center">
                                             <a href="http://localhost/FairFarm/app/views/Farmer/delete.php?FarmerID=<?php echo $farmer['FarmerID']; ?>" 
-                                            class="text-white bg-red-500 hover:bg-red-700 rounded px-4 py-2"
+                                            class="text-white bg-red-500 hover:bg-red-700 rounded-full p-2 flex items-center justify-center" 
                                             onclick="return confirm('Are you sure you want to delete this?');">
-                                                Delete
+                                                <i class="ph ph-trash"></i>
                                             </a>
                                         </div>
                                     </td>
@@ -81,6 +81,6 @@ $farmers = $controller->index();
                 </table>
             </div>
         </div>
-    </div>
+    </main>
 </body>
 </html>

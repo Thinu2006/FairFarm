@@ -4,41 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmer Dashboard</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+   
     <style>
-        body {
-            font-family: "Roboto Slab", serif;
-        }
-        h1, h2, h3, h4 {
-            font-family: "Playfair Display", serif;
-        }
-    </style>
+    /* Apply Poppins font */
+    body {
+    font-family: "Roboto Slab", serif !important;
+    font-weight: 350;
+}
+
+
+    /* Heading Styles */
+    h1 {
+        font-size: 32px;
+        
+    }
+
+    h2 {
+        font-size: 30px; /* 32px */
+       
+    }
+
+    h3 {
+        font-size: 28px; /* 28px */
+       
+    }
+
+    /* Paragraph Styles */
+    p {
+        font-size: 16px; /* 16px */
+       
+    }
+</style>
+
 </head>
-<body class="bg-green-50 flex">
+<body class="bg-gray-100  flex">
     <?php include './../Layout/FarmerNav.php'; ?>
 
     <!-- Main Content -->
-    <main class="flex-1 p-8">
+    <main class="flex-1 ml-64 p-10">
         <h1 class="text-3xl font-bold text-[#1F4529]">Welcome, John Deo! </h1>
 
         <!-- Stats Section -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-            <div class="bg-green-200 text-center p-6 rounded-lg shadow-md">
+            <div class="bg-white text-center p-6 rounded-lg shadow-md">
                 <p class="text-lg font-semibold">Total Orders</p>
                 <p class="text-3xl font-bold mt-2 text-[#1F4529]">10</p>
             </div>
-            <div class="bg-green-200 text-center p-6 rounded-lg shadow-md">
+            <div class="bg-white  text-center p-6 rounded-lg shadow-md">
                 <p class="text-lg font-semibold">Total Revenue (Rs)</p>
                 <p class="text-3xl font-bold mt-2 text-[#1F4529]">100,000</p>
             </div>
-            <div class="bg-green-200 text-center p-6 rounded-lg shadow-md">
+            <div class="bg-white  text-center p-6 rounded-lg shadow-md">
                 <p class="text-lg font-semibold">Active Products</p>
                 <p class="text-3xl font-bold mt-2 text-[#1F4529]">5</p>
             </div>
         </div>
 
         <!-- Sales Chart UI -->
-        <div class="bg-green-100 p-6 rounded-lg shadow-md mt-6">
+        <div class="bg-white  p-6 rounded-lg shadow-md mt-6">
             <h3 class="text-xl font-semibold text-center text-[#1F4529] mb-4">Sales Over the Year</h3>
 
             <!-- Chart Container -->

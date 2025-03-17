@@ -13,16 +13,37 @@ $controller->authenticateAdmin();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login | Fair Farm</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto+Slab:wght@400;600&display=swap');
+    /* Apply Poppins font */
+    body {
+    font-family: "Roboto Slab", serif !important;
+    font-weight: 350;
+}
+
+
+    /* Heading Styles */
+    h1 {
+        font-size: 32px;
         
-        body {
-            font-family: "Roboto Slab", serif;
-        }
-        h1, h2 {
-            font-family: "Playfair Display", serif;
-        }
-    </style>
+    }
+
+    h2 {
+        font-size: 30px; /* 32px */
+       
+    }
+
+    h3 {
+        font-size: 28px; /* 28px */
+       
+    }
+
+    /* Paragraph Styles */
+    p {
+        font-size: 16px; /* 16px */
+       
+    }
+</style>
 </head>
 <body class="bg-cover bg-center min-h-screen flex justify-center items-center px-4" 
       style="background-image: url('./../../Images/admin.jpg');">

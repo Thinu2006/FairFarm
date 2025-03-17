@@ -4,20 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms & Conditions | Fair Farm</title>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+   
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto+Slab:wght@400;600&display=swap');
+    /* Apply Poppins font */
+    body {
+    font-family: "Roboto Slab", serif !important;
+    font-weight: 350;
+}
+
+
+    /* Heading Styles */
+    h1 {
+        font-size: 32px;
         
-        body {
-            font-family: "Roboto Slab", serif;
-         
-        }
-        h1, h2 ,p{
-            font-family: "Playfair Display", serif;
-        }
-    </style>
+    }
+
+    h2 {
+        font-size: 30px; /* 32px */
+       
+    }
+
+    h3 {
+        font-size: 28px; /* 28px */
+       
+    }
+
+    /* Paragraph Styles */
+    p {
+        font-size: 16px; /* 16px */
+       
+    }
+</style>
+   
 </head>
-<body class="flex items-center justify-center min-h-screen p-6 bg-gradient-to-r from-green-700 to-green-300
+<body class="flex items-center justify-center min-h-screen p-6 bg-gray-200
 ">
     <div class="bg-white p-6 rounded-lg shadow-md max-w-2xl w-full text-gray-800">
         <h1 class="text-4xl font-bold text-green-700 text-center">Terms & Conditions</h1>
@@ -45,7 +69,7 @@
         </div>
 
         <div class="text-center mt-8">
-            <a href="./signup.php" class="bg-green-700 text-white py-2 px-6 rounded-lg hover:bg-green-800 transition">Back to Registration</a>
+            <a href="./CustomerSignup.php" class="bg-green-700 text-white py-2 px-6 rounded-lg hover:bg-green-800 transition">Back to Registration</a>
         </div>
     </div>
 </body>

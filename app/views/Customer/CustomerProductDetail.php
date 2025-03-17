@@ -5,18 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+   
     <style>
-        body {
-            font-family: "Roboto Slab", serif;
-        }
-        h1, h2, h3, h4 {
-            font-family: "Playfair Display", serif;
-        }
-    </style>
-</head>
-<body class="bg-green-50">
+    /* Apply Poppins font */
+    body {
+    font-family: "Roboto Slab", serif !important;
+    font-weight: 350;
+}
 
-<?php include '../CustomerLayout/header.php'; ?>
+
+    /* Heading Styles */
+    h1 {
+        font-size: 32px;
+        
+    }
+
+    h2 {
+        font-size: 30px; /* 32px */
+       
+    }
+
+    h3 {
+        font-size: 28px; /* 28px */
+       
+    }
+
+    /* Paragraph Styles */
+    p {
+        font-size: 16px; /* 16px */
+       
+    }
+</style>
+   
+</head>
+<body class="bg-gray-100">
+
+<?php include '../Layout/CustomerHeader.php'; ?>
 
 <?php
 $products = [
@@ -57,7 +85,7 @@ if ($product_id > 0 && isset($products[$product_id])) {
             <div class="w-full">
                 <h2 class="text-lg font-semibold text-gray-800 mb-3 text-center">Request Quantity</h2>
                 <input type="number" id="quantity" name="quantity" min="1" max="<?php echo $product['available']; ?>" class="w-full border border-gray-400 p-2 rounded-md text-center">
-                <button class="mt-4 bg-green-700 text-white px-6 py-2 rounded-md hover:bg-green-900 w-full"><a href="./orderDetail.php">Request</a></button>
+                <button class="mt-4 bg-green-700 text-white px-6 py-2 rounded-md hover:bg-green-900 w-full"><a href="./CustomerOrderDetail.php">Request</a></button>
             </div>
 
             <!-- Additional Info -->
@@ -75,13 +103,13 @@ if ($product_id > 0 && isset($products[$product_id])) {
             <!-- Chat Section -->
                 <button class="mt-2 bg-green-800 text-white px-6 py-2 rounded-md hover:bg-green-800 w-full">Chat</button>
             <!-- Back Button -->
-            <a href="product.php" class="mt-4 block bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-700 w-full text-center">Back</a>
+            <a href="./CustomerProduct.php" class="mt-4 block bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-700 w-full text-center">Back</a>
         </div>
     </div>
 </section>
 
 <!-- Footer -->
-<?php include '../CustomerLayout/Footer.php'; ?>
+<?php include '../Layout/CustomerFooter.php'; ?>
 
 
 

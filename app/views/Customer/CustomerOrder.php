@@ -17,13 +17,41 @@ $orders = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Orders</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+   
     <style>
-        body {
-            font-family: "Roboto Slab", serif;
-        }
-        h1, h2, h3, h4 {
-            font-family: "Playfair Display", serif;
-        }
+    /* Apply Poppins font */
+    body {
+    font-family: "Roboto Slab", serif !important;
+    font-weight: 350;
+}
+
+
+    /* Heading Styles */
+    h1 {
+        font-size: 32px;
+        
+    }
+
+    h2 {
+        font-size: 30px; /* 32px */
+       
+    }
+
+    h3 {
+        font-size: 28px; /* 28px */
+       
+    }
+
+    /* Paragraph Styles */
+    p {
+        font-size: 16px; /* 16px */
+       
+    }
+
         .status-badge {
             padding: 4px 8px;
             border-radius: 6px;
@@ -36,7 +64,7 @@ $orders = [
         tr:hover { background-color: #EDF2F7; cursor: pointer; }
     </style>
 </head>
-<body class="bg-green-50">
+<body class="bg-gray-100">
 
     <?php include '../Layout/CustomerHeader.php'; ?>
 
