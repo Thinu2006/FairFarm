@@ -39,7 +39,7 @@
                     <i class="fas fa-user"></i>
                     <span>Profile</span>
                 </a>
-                <a href="logout.php" class="flex items-center space-x-3 p-3 text-red-300 hover:bg-red-500 hover:text-white rounded-lg transition mt-6">
+                <a href="/FairFarm/app/controllers/FarmerController.php?action=farmerlogout" class="flex items-center space-x-3 p-3 text-red-300 hover:bg-red-500 hover:text-white rounded-lg transition mt-6">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Logout</span>
                 </a>

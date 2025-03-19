@@ -1,5 +1,4 @@
 <?php
-
 // Include the required controller
 require_once '../../controllers/FarmerController.php';
 
