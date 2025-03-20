@@ -1,4 +1,13 @@
 <?php
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if (!isset($_SESSION['Admin_ID'])) {
+    header("Location: AdminLogin.php");
+    exit;
+}
+
 require_once '../../controllers/PaddyController.php';
 
 $controller = new PaddyController();

@@ -1,6 +1,15 @@
 <?php
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if (!isset($_SESSION['Admin_ID'])) {
+    header("Location: AdminLogin.php");
+    exit;
+}
+
 // Include the required controller
-require_once '../../../App/controllers/BuyerController.php';
+require_once '../../controllers/BuyerController.php';
 
 // Create an instance of the controller
 $controller = new BuyerController();
@@ -47,6 +56,7 @@ $buyers = $controller->index();
                             <th class="border border-gray-400 px-6 py-4">Contact No</th>
                             <th class="border border-gray-400 px-6 py-4">Address</th>
                             <th class="border border-gray-400 px-6 py-4">Email</th>
+                            <th class="border border-gray-400 px-6 py-4">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,11 +69,20 @@ $buyers = $controller->index();
                                     <td class="border border-gray-400 px-4 py-2"><?php echo $buyer['ContactNo']; ?></td>
                                     <td class="border border-gray-400 px-4 py-2"><?php echo $buyer['Address']; ?></td>
                                     <td class="border border-gray-400 px-4 py-2"><?php echo $buyer['Email']; ?></td>
+                                    <td class="border border-gray-400 px-4 py-2 text-center">
+                                        <div class="flex justify-center">
+                                            <a href="http://localhost/FairFarm/app/views/Customer/CustomerDelete.php?BuyerID=<?php echo $buyer['BuyerID']; ?>" 
+                                            class="text-white bg-red-500 hover:bg-red-700 rounded-full p-2 flex items-center justify-center" 
+                                            onclick="return confirm('Are you sure you want to delete this?');">
+                                                <i class="ph ph-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         <?php else: ?>
                             <tr>
-                                <td colspan="6" class="text-center border border-gray-400 px-4 py-2">No Data Found.</td>
+                                <td colspan="7" class="text-center border border-gray-400 px-4 py-2">No Data Found.</td>
                             </tr>
                         <?php endif; ?>
                     </tbody>

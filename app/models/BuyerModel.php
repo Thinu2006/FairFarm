@@ -58,5 +58,18 @@ class Buyer {
         $stmt->execute();
         return $stmt->fetchColumn();
     }
+
+    // Delete buyer from the database
+    public function deleteBuyer() {
+        $query = "DELETE FROM " . $this->table . " WHERE BuyerID = :BuyerID";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':BuyerID', $this->BuyerID, PDO::PARAM_INT);
+    
+        if (!$stmt->execute()) {
+            print_r($stmt->errorInfo());  
+            return false;
+        }
+        return true;
+    }
 }
 ?>

@@ -32,7 +32,6 @@ class Farmer {
 
      // Fetch the farmer based on both email and fullname
     public function fetchFarmer() {
-       
         $query = "SELECT * FROM " . $this->table . " WHERE Email = :Email AND FullName = :FullName LIMIT 1";
         $stmt = $this->conn->prepare($query);
     
@@ -70,8 +69,5 @@ class Farmer {
         }
         return true;
     }
-    
-    
-    
 }
 ?>

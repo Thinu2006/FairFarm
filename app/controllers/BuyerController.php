@@ -171,6 +171,16 @@ class BuyerController {
     public function getBuyerCount() {
         return $this->buyer->countBuyers();
     }
+    // Delete an buyer
+    public function deleteBuyer($BuyerID){
+        $this->buyer->BuyerID = $BuyerID;
+        if ($this->buyer->deleteBuyer()){
+            header('Location: http://localhost/FairFarm/app/views/Admin/CustomersList.php?status=success');
+            exit;
+        } else {
+            echo "Failed to delete buyer.";
+        }
+    }
 }
 
 if (isset($_GET['action']) && $_GET['action'] === 'buyerlogout') {

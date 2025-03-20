@@ -1,4 +1,13 @@
 <?php
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if (!isset($_SESSION['Admin_ID'])) {
+    header("Location: AdminLogin.php");
+    exit;
+}
+
 // Include the required controller
 require_once '../../controllers/FarmerController.php';
 
@@ -62,7 +71,7 @@ $farmers = $controller->index();
                                     <td class="border border-gray-400 px-4 py-2"><?php echo $farmer['Email']; ?></td>
                                     <td class="border border-gray-400 px-4 py-2 text-center">
                                         <div class="flex justify-center">
-                                            <a href="http://localhost/FairFarm/app/views/Farmer/delete.php?FarmerID=<?php echo $farmer['FarmerID']; ?>" 
+                                            <a href="http://localhost/FairFarm/app/views/Farmer/FarmerDelete.php?FarmerID=<?php echo $farmer['FarmerID']; ?>" 
                                             class="text-white bg-red-500 hover:bg-red-700 rounded-full p-2 flex items-center justify-center" 
                                             onclick="return confirm('Are you sure you want to delete this?');">
                                                 <i class="ph ph-trash"></i>

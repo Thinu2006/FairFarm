@@ -50,5 +50,13 @@ class Paddy
         }
         return true;
     }
+
+    // Fetch details of a specific paddy type by its ID
+    public function getPaddyById($PaddyID) {
+        $query = "SELECT PaddyID, PaddyName, MaxPrice, Image FROM " . $this->table . " WHERE PaddyID = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$PaddyID]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
 ?>

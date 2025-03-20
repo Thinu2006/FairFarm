@@ -8,16 +8,6 @@ if (!isset($_SESSION['Admin_ID'])) {
     exit;
 }
 
-// Include and initialize controllers
-require_once '../../controllers/FarmerController.php';
-require_once '../../controllers/BuyerController.php';
-
-$farmerController = new FarmerController();
-$buyerController = new BuyerController();
-
-// Fetch data
-$total_farmers = $farmerController->getFarmerCount();
-$total_buyers = $buyerController->getBuyerCount();
 ?>
 
 <!DOCTYPE html>

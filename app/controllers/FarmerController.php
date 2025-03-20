@@ -46,7 +46,7 @@ class FarmerController {
     // Generate JWT token
     private function generateToken($farmerId, $fullname) {
         $payload = [
-            "farmerId" => $farmerId,
+            "farmerId" => $farmerId, // Ensure farmerId is included
             "fullname" => $fullname,
             "iat" => time(), // Issued at
             "exp" => time() + (60 * 60) // Expire in 1 hour
@@ -63,6 +63,7 @@ class FarmerController {
             return false;
         }
     }
+
     public function createFarmer() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Check if all required keys exist in $_POST
@@ -134,8 +135,8 @@ class FarmerController {
             $user = $this->farmer->fetchFarmer();
 
             if ($user && password_verify($password, $user['Password'])) {
-                // Generate JWT token
-                $token = $this->generateToken($user['FarmerId'], $user['FullName']);
+                // Generate JWT token with FarmerID
+                $token = $this->generateToken($user['FarmerID'], $user['FullName']); // Include FarmerID here
 
                 // Set token in a cookie or local storage (for frontend)
                 setcookie("auth_token", $token, time() + (60 * 60), "/"); // 1 hour expiry
@@ -156,7 +157,24 @@ class FarmerController {
         exit;
     }
 
-    // Other methods remain unchanged...
+    public function index() {
+        return $this->farmer->getAllFarmers();
+    }
+
+    public function getFarmerCount() {
+        return $this->farmer->countFarmers();
+    }
+
+    // Delete an farmer
+    public function deleteFarmer($FarmerID){
+        $this->farmer->FarmerID = $FarmerID;
+        if ($this->farmer->delete()){
+            header('Location: http://localhost/FairFarm/app/views/Admin/FarmersList.php?status=success');
+            exit;
+        } else {
+            echo "Failed to delete farmer.";
+        }
+    }
 }
 
 if (isset($_GET['action']) && $_GET['action'] === 'farmerlogout') {

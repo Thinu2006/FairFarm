@@ -38,7 +38,6 @@ try {
     <!-- Main Content -->
     <main class="flex-1 ml-64 p-10">
         <h1 class="text-3xl font-bold text-[#1F4529]">Welcome, <?php echo htmlspecialchars($fullname); ?>!</h1>
-        <!-- Your existing dashboard content -->
     </main>
 </body>
 </html>
