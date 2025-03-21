@@ -72,15 +72,18 @@ $paddyTypes = $paddyController->index();
     <!-- Main Content -->
     <main class="flex-1 ml-64 p-10">
         <div class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
-            <h1 class="text-2xl font-bold text-center mb-6">List New Paddy Type</h1>
-            <form action="../../controllers/FarmerSellingPaddyController.php?action=CreateFarmerSellingPaddyType" method="POST" id="sellingForm">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-green-800">List New Paddy Type</h1>
+                <p class="text-gray-600 mt-2">Fill out the form to list a new paddy type for sale.</p>
+            </div>            <!-- Form Section -->
+            <form action="../../controllers/FarmerSellingPaddyController.php?action=CreateFarmerSellingPaddyType" method="POST" id="sellingForm" class="space-y-6">
                 <!-- Pass FarmerID as a hidden input -->
                 <input type="hidden" name="FarmerID" value="<?php echo $farmerId; ?>">
                 
                 <!-- Paddy Type Dropdown -->
                 <div>
-                    <label for="PaddyType" class="block font-bold mb-1">Select Paddy Type:</label>
-                    <select name="PaddyTypeID" id="PaddyType" class="w-full p-2 border rounded-lg">
+                    <label for="PaddyType" class="block text-sm font-bold text-green-800 mb-2">Select Paddy Type:</label>
+                    <select name="PaddyTypeID" id="PaddyType" class="w-full p-2 border border-green-300 rounded-lg  focus:border-green-500 transition-all">
                         <option value="" disabled selected>Select a Paddy Type</option>
                         <?php foreach($paddyTypes as $type): ?>
                             <option value="<?= $type['PaddyID'] ?>" data-max-price="<?= $type['MaxPrice'] ?>" data-image="<?= $type['Image'] ?>" data-name="<?= $type['PaddyName'] ?>"><?= $type['PaddyName'] ?></option>
@@ -90,24 +93,24 @@ $paddyTypes = $paddyController->index();
                 
                 <!-- Price Slider -->
                 <div id="paddyDetails">
-                    <label class="block font-bold mb-1">Price Per 1Kg (Rs.)</label>
+                    <label class="block text-sm font-medium text-green-800 mb-2">Price Per 1Kg (Rs.):</label>
                     <div class="flex items-center space-x-4">
-                        <input type="range" name="PriceSelected" id="PriceSelected" min="0" max="0" value="0" class="w-full cursor-pointer" oninput="updatePriceDisplay()">
-                        <span id="selectedPrice" class="px-4 py-2 bg-gray-100 rounded-lg">Select a Paddy Type</span>
+                        <input type="range" name="PriceSelected" id="PriceSelected" min="0" max="0" value="0" class="w-full cursor-pointer transition-all">
+                        <span id="selectedPrice" class="px-4 py-2 bg-green-100 text-green-800 rounded-lg">Select a Paddy Type</span>
                     </div>
-                    <img id="paddyImage" src="" alt="Paddy Image" style="max-width: 150px; max-height: 150px; display:none;">
+                    <img id="paddyImage" src="" alt="Paddy Image" class="w-40 h-40 object-cover rounded-md mt-4 mx-auto" style="display:none;">
                 </div>
 
                 <!-- Quantity Input -->
                 <div>
-                    <label for="Quantity" class="block font-bold mb-1">Quantity:</label>
-                    <input type="number" name="Quantity" id="Quantity" min="1" class="w-full p-2 border rounded-lg" required>
+                    <label for="Quantity" class="block text-sm font-medium text-green-800 mb-2">Quantity (kg):</label>
+                    <input type="number" name="Quantity" id="Quantity" min="1" class="w-full p-2 border border-green-300 rounded-lg focus:border-green-500 transition-all" required>
                 </div>
 
                 <!-- Buttons -->
                 <div class="flex justify-between items-center">
-                    <button type="button" onclick="window.history.back()" class="bg-gray-400 text-white py-2 px-6 rounded hover:bg-gray-500 transition">Back</button>
-                    <button type="submit" class="bg-green-700 text-white py-2 px-6 rounded hover:bg-green-800 transition">Submit</button>
+                    <button type="button" onclick="window.history.back()" class="bg-gray-400 text-white py-2 px-6 rounded-lg hover:bg-gray-500 transition-all">Back</button>
+                    <button type="submit" class="bg-green-700 text-white py-2 px-6 rounded-lg hover:bg-green-800 transition-all">Submit</button>
                 </div>
             </form>
 

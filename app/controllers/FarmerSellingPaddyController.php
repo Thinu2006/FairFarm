@@ -35,6 +35,11 @@ class FarmerSellingPaddyController {
             echo "Missing form data.";
         }
     }
+
+    public function listSellingPaddyTypes($FarmerID) {
+        $sellingPaddyTypes = $this->sellingpaddy->getSellingPaddyTypesByFarmer($FarmerID);
+        return $sellingPaddyTypes;
+    }
 }
 
 // Handle the form submission

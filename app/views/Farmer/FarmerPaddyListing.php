@@ -23,6 +23,11 @@ try {
     header("Location: FarmerSignin.php");
     exit;
 }
+
+require_once '../../controllers/FarmerSellingPaddyController.php';
+
+$controller = new FarmerSellingPaddyController();
+$sellingPaddyTypes = $controller->listSellingPaddyTypes($farmerId); // Fetch data for the specific farmer
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,36 +47,27 @@ try {
             font-weight: 350;
         }
 
-
         /* Heading Styles */
         h1 {
             font-size: 32px;
-
         }
 
         h2 {
             font-size: 30px;
-            /* 32px */
-
         }
 
         h3 {
             font-size: 28px;
-            /* 28px */
-
         }
 
         /* Paragraph Styles */
         p {
             font-size: 16px;
-            /* 16px */
-
         }
     </style>
-
 </head>
 
-<body class="bg-gray-100  flex">
+<body class="bg-gray-100 flex">
     <!-- Sidebar Navigation -->
     <?php include './../Layout/FarmerNav.php'; ?>
 
@@ -85,39 +81,26 @@ try {
 
             <!-- Paddy Cards Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-                <!-- Single Paddy Card -->
-                <div class="bg-white p-5 rounded-xl shadow-lg text-center border border-green-300 hover:shadow-xl transition-all">
-                    <img src="./../../Images/paddy1.jpg" alt="Paddy" class="w-full h-40 object-cover rounded-md">
-                    <p class="font-bold mt-3 text-lg text-green-800">Kiri Samba</p>
-                    <p class="text-gray-700"><strong>Per 1Kg:</strong> Rs. 150</p>
-                    <p class="text-gray-700"><strong>Available Quantity:</strong> 30kg</p>
-                    <div class="mt-4 flex gap-4 justify-center">
-                        <a href="#" class="w-1/2 px-4 py-2 bg-green-800 text-white rounded-lg hover:bg-green-700 transition-all">Delete</a>
-                        <a href="#" class="w-1/2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-500 transition-all">Update</a>
+                <?php foreach ($sellingPaddyTypes as $paddy): ?>
+                    <!-- Single Paddy Card -->
+                    <div class="bg-white p-5 rounded-xl shadow-lg text-center border border-green-300 hover:shadow-xl transition-all">
+                        <!-- Paddy Image -->
+                        <img src="../../../uploads/<?php echo htmlspecialchars($paddy['Image']); ?>" alt="Paddy" class="w-full h-40 object-cover rounded-md">
+                        
+                        <!-- Paddy Name -->
+                        <p class="font-bold mt-3 text-lg text-green-800"><?php echo htmlspecialchars($paddy['PaddyName']); ?></p>
+                        
+                        <!-- Price and Quantity -->
+                        <p class="text-gray-700"><strong>Per 1Kg:</strong> Rs. <?php echo htmlspecialchars($paddy['Price']); ?></p>
+                        <p class="text-gray-700"><strong>Available Quantity:</strong> <?php echo htmlspecialchars($paddy['Quantity']); ?>kg</p>
+                        
+                        <!-- Buttons for Delete and Update -->
+                        <div class="mt-4 flex gap-4 justify-center">
+                            <a href="" class="w-1/2 px-4 py-2 bg-green-800 text-white rounded-lg hover:bg-green-700 transition-all">Delete</a>
+                            <a href="" class="w-1/2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-500 transition-all">Update</a>
+                        </div>
                     </div>
-                </div>
-
-                <div class="bg-white p-5 rounded-xl shadow-lg text-center border border-green-300 hover:shadow-xl transition-all">
-                    <img src="./../../Images/paddy2.jpg" alt="Paddy" class="w-full h-40 object-cover rounded-md">
-                    <p class="font-bold mt-3 text-lg text-green-800">Basmati</p>
-                    <p class="text-gray-700"><strong>Per 1Kg:</strong> Rs. 120</p>
-                    <p class="text-gray-700"><strong>Available Quantity:</strong> 50kg</p>
-                    <div class="mt-4 flex gap-4 justify-center">
-                        <a href="#" class="w-1/2 px-4 py-2 bg-green-800 text-white rounded-lg hover:bg-green-700 transition-all">Delete</a>
-                        <a href="#" class="w-1/2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-500 transition-all">Update</a>
-                    </div>
-                </div>
-
-                <div class="bg-white p-5 rounded-xl shadow-lg text-center border border-green-300 hover:shadow-xl transition-all">
-                    <img src="./../../Images/paddy3.jpg" alt="Paddy" class="w-full h-40 object-cover rounded-md">
-                    <p class="font-bold mt-3 text-lg text-green-800">Sona Masoori</p>
-                    <p class="text-gray-700"><strong>Per 1Kg:</strong> Rs. 100</p>
-                    <p class="text-gray-700"><strong>Available Quantity:</strong> 40kg</p>
-                    <div class="mt-4 flex gap-4 justify-center">
-                        <a href="#" class="w-1/2 px-4 py-2 bg-green-800 text-white rounded-lg hover:bg-green-700 transition-all">Delete</a>
-                        <a href="#" class="w-1/2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-500 transition-all">Update</a>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </main>

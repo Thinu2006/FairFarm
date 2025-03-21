@@ -1,6 +1,5 @@
 <?php
-class Paddy
-{
+class Paddy {
     private $conn; 
     private $table = 'paddytype';  // Keep this as paddytype to match the database
 
